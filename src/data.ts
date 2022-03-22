@@ -26,7 +26,7 @@ export const quizDetails: Quiz = {
         "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg",
       questions: [
         {
-          value: "What is the full form of JSX",
+          value: "What is the full form of JS",
           options: [
             {
               optionValue: "Java-Script",
@@ -34,6 +34,19 @@ export const quizDetails: Quiz = {
             },
             {
               optionValue: "Java-Scribe",
+              isCorrect: false
+            }
+          ]
+        },
+        {
+          value: "What are higher order functions",
+          options: [
+            {
+              optionValue: "Map, reduce, filter",
+              isCorrect: true
+            },
+            {
+              optionValue: "For-each, enhanced-for",
               isCorrect: false
             }
           ]
