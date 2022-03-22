@@ -1,22 +1,51 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { quizDetails } from "../../data";
-import { QuestionCard, Options } from "./quiz.style";
+import { Question, quizDetails } from "../../data";
+import { QuestionCard, Options, Option } from "./quiz.style";
+export function updateScore(
+  setCurrentScore: any,
+  setSelectedOption: any,
+  question: Question,
+  optionId: string
+) {
+  setSelectedOption(optionId);
+}
+type Answers = {
+  question: Question;
+  optionId: string;
+};
+let answers: Answers[] = [];
 export const QuizQuestions = () => {
   const [count, setCounter] = useState(0);
+  const [currentScore, setCurrentScore] = useState(0);
+  const [selectedOption, setSelectedOption] = useState("");
   const { id } = useParams();
-  const currentQuiz = quizDetails.listOfQuizes.find(
-    (quiz) => quiz.id === JSON.parse(id, 10)
-  );
+
+  const currentQuiz = quizDetails.listOfQuizes.find((quiz) => quiz.id === id);
+
   return (
     <div>
       {count <= currentQuiz?.questions?.length - 1 && (
         <QuestionCard>
-          <span>{currentQuiz?.questions[count].value}</span>
+          <h3>{currentQuiz?.questions[count].value}?</h3>
           <Options>
-            {currentQuiz?.questions[count].options.map(({ optionValue }) => (
-              <div>{optionValue}</div>
-            ))}
+            {currentQuiz?.questions[count].options.map(
+              ({ optionValue, optionId }) => (
+                <Option
+                  selectedOption={selectedOption === optionId ? true : false}
+                  onClick={() =>
+                    updateScore(
+                      setCurrentScore,
+                      setSelectedOption,
+                      currentQuiz?.questions[count],
+                      optionId
+                    )
+                  }
+                >
+                  {optionValue}
+                </Option>
+              )
+            )}
           </Options>
         </QuestionCard>
       )}
