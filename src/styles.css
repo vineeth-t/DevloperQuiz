@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@200;500&display=swap");
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+  background-color: var(--bg-color);
+  color: var(--font-color);
+  font-family: "M PLUS 1", sans-serif;
+}
+:root {
+  --font-color: black;
+  --bg-color: #292524;
+  --header-color: #a3e635;
+}
