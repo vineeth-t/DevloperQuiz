@@ -1,54 +1,38 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { Question, quizDetails } from "../../data";
+import { quizDetails } from "../../data";
+import { updateScore } from "../../utils/updateAnswers";
 import { QuestionCard, Options, Option } from "./quiz.style";
-export function updateScore(
-  setCurrentScore: any,
-  setSelectedOption: any,
-  question: Question,
-  optionId: string
-) {
-  setSelectedOption(optionId);
-}
-type Answers = {
-  question: Question;
-  optionId: string;
-};
-let answers: Answers[] = [];
 export const QuizQuestions = () => {
   const [count, setCounter] = useState(0);
-  const [currentScore, setCurrentScore] = useState(0);
-  const [selectedOption, setSelectedOption] = useState("");
+  const [optionSelected, setSelectedOption] = useState("");
   const { id } = useParams();
-
   const currentQuiz = quizDetails.listOfQuizes.find((quiz) => quiz.id === id);
-
   return (
     <div>
-      {count <= currentQuiz?.questions?.length - 1 && (
+      {
         <QuestionCard>
           <h3>{currentQuiz?.questions[count].value}?</h3>
           <Options>
             {currentQuiz?.questions[count].options.map(
               ({ optionValue, optionId }) => (
                 <Option
-                  selectedOption={selectedOption === optionId ? true : false}
+                  optionSelected={optionSelected === optionId ? false : true}
                   onClick={() =>
                     updateScore(
-                      setCurrentScore,
                       setSelectedOption,
-                      currentQuiz?.questions[count],
+                      currentQuiz?.questions[count].questionId,
                       optionId
                     )
                   }
                 >
-                  {optionValue}
+                  <span> {optionValue}</span>
                 </Option>
               )
             )}
           </Options>
         </QuestionCard>
-      )}
+      }
       <button onClick={() => setCounter((count) => count + 1)}>next</button>
     </div>
   );
