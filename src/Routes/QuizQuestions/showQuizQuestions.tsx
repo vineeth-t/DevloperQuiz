@@ -8,11 +8,14 @@ export const QuizQuestions = () => {
   const [optionSelected, setSelectedOption] = useState("");
   const { id } = useParams();
   const currentQuiz = quizDetails.listOfQuizes.find((quiz) => quiz.id === id);
+  let lengthofQuizQuestionsArray: any = currentQuiz?.questions.length;
+  console.log(count, lengthofQuizQuestionsArray);
   return (
     <div>
-      {
+      {count < lengthofQuizQuestionsArray ? (
+        <>
         <QuestionCard>
-          <h3>{currentQuiz?.questions[count].value}?</h3>
+          <h3>{currentQuiz?.questions[count].value}</h3>
           <Options>
             {currentQuiz?.questions[count].options.map(
               ({ optionValue, optionId }) => (
@@ -32,8 +35,11 @@ export const QuizQuestions = () => {
             )}
           </Options>
         </QuestionCard>
-      }
-      <button onClick={() => setCounter((count) => count + 1)}>next</button>
+        <button onClick={() => setCounter((count:number)=>count+1)}>next</button>
+        </>
+      ) : (
+        <h2>Finshed the test</h2>
+      )}
     </div>
   );
 };
