@@ -10,15 +10,17 @@ export const Options = styled.div`
   display: flex;
   flex-direction: row;
 `;
-export const Option = styled.div`
-  border: 1px solid white;
-  padding: 0.5rem 1rem;
-  margin: 1rem;
-  background-color: ${(props: any) =>
-    props.selectedOption ? "var(--header-color)" : "transparent"};
-  color: ${(props: any) => (props.selectedOption ? "black" : "white")};
-  &:hover {
-    background-color: var(--header-color);
-    color: black;
+export const Option=styled.label<{ optionSelected: boolean }>`
+${({ optionSelected }) => {
+  if (optionSelected) {
+    return 'background-color: var(--header-color)';
   }
-`;
+  return 'background-color: black';
+}}
+padding:0.5rem 0.5rem;
+margin:1rem;
+&:hover{
+  background-color:var(--header-color);
+  color:black;
+}
+`
