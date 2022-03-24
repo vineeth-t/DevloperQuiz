@@ -1,10 +1,18 @@
 import styled, { css } from "styled-components";
 export const QuestionCard = styled.div`
+  box-shadow: rgba(191, 255, 83, 0.5) 0px 0px 180px 4px;
+  background-color: var(--bg-color1);
   display: flex;
   flex-direction: column;
+  justify-content:center;
   align-items: center;
   color: white;
-  margin: 1rem;
+  margin: 5rem;
+  @media screen and (max-width:765px){
+    width:300px;
+    margin:5rem auto;
+
+  }
 `;
 export const Options = styled.div`
   display: flex;
@@ -35,5 +43,4 @@ export const Option = styled.label<QuizOption>`
       background-color: red;
       color: black;
     `}
-  wrongAnswer
 `;

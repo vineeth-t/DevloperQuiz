@@ -13,7 +13,8 @@ export const Rules = styled.section`
   }
 `;
 export type Buttontypes={
-    secondary?:string
+    secondary?:string,
+    next?:string
 }
 export const Button = styled.button<Buttontypes>`
   color: black;
@@ -25,6 +26,18 @@ export const Button = styled.button<Buttontypes>`
   padding: 0.5rem;
   font-weight: 800;
   margin:1rem;
+  ${(props)=>props.next==='next'&&css`
+     position:absolute;
+     right:1rem;
+     background-color: transparent;
+     border:none;
+     color:var(--header-color);
+     text-decoration:underline;
+     font-size:large;
+     &:hover{
+       color:white;
+     }
+  `}
 `;
 
 export function Instructions({ setInstructions }: any) {

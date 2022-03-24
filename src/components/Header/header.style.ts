@@ -23,6 +23,10 @@ export const Header = styled.div`
   justify-content: space-between;
   background-color: var(--header-color);
   padding: 0.5rem;
+  width:100%;
+  @media screen and (max-width:765px){
+  
+  }
 `;
 export const NavLeft = styled.div`
   font-weight: 800;
