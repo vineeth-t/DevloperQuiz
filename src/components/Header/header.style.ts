@@ -21,15 +21,16 @@ export const animate = keyframes`
 export const Header = styled.div`
   display: flex;
   justify-content: space-between;
-
   background-color: var(--header-color);
   padding: 0.5rem;
 `;
 export const NavLeft = styled.div`
   font-weight: 800;
-  animation: ${animate} 5s ease-in-out;
+  animation: ${animate} 3s ease-in-out;
+
 `;
 export const NavRight = styled.div`
   display: flex;
   align-items: center;
+  animation: ${animate} 3s ease-in-out;
 `;

@@ -14,6 +14,7 @@ export const QuizCard = styled.div`
 export const QuizList = styled.div`
   display: flex;
   align-items: center;
+  flex-wrap:wrap;
   justify-content: center;
   margin: 2rem;
 `;

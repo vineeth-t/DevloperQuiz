@@ -12,3 +12,7 @@ body {
   --bg-color: #292524;
   --header-color: #a3e635;
 }
+a{
+  text-decoration: none;
+  color:black;
+}
