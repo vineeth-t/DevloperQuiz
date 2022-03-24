@@ -1,17 +1,18 @@
+import { Question } from "../data";
 import { Answers } from "../Routes/QuizQuestions/quiz.type";
 
-let answers: Answers[] = [];
+export let answers: Answers[] = [];
 export function updateScore(
     setSelectedOption: any,
-    question: string,
-    optionId: string
+    question: Question,
+    answeredOption: string
   ) {
-    setSelectedOption(optionId);
-    if(answers.find((answer)=>answer.question===question)){
-      let currentIndex=answers.findIndex((answer)=>answer.question===question);
-      answers[currentIndex].optionId=optionId
+    setSelectedOption(answeredOption);
+    if(answers.find((answer)=>answer.question.questionId===question.questionId)){
+      let currentIndex=answers.findIndex((answer)=>answer.question.questionId===question.questionId);
+      answers[currentIndex].answeredOption=answeredOption
     }else{
-      answers=[...answers,{question,optionId}]
+      answers=[...answers,{question,answeredOption}]
     }
     
   }

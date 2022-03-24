@@ -61,6 +61,14 @@ export const quizDetails: Quiz = {
               optionValue: "For-each, enhanced-for",
 
               isCorrect: false
+            },   {
+              optionId: uuid(),
+              optionValue: "xyzs",
+              isCorrect: false
+            },  {
+              optionId: uuid(),
+              optionValue: "12345",
+              isCorrect: false
             }
           ]
         }

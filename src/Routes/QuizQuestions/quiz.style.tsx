@@ -12,18 +12,28 @@ export const Options = styled.div`
 `;
 type QuizOption = {
   optionSelected?: boolean;
+  wrongAnswer?: boolean;
+  hoverOnOptions?:boolean
 };
 export const Option = styled.label<QuizOption>`
   padding: 0.5rem 0.5rem;
   margin: 1rem;
-  &:hover{
+  ${(props) =>props.hoverOnOptions&&css`
+  &:hover {
     background-color: var(--header-color);
     color: black;
-  }
+  }`}
   ${(props) =>
     props.optionSelected &&
     css`
       background-color: var(--header-color);
       color: black;
+    `};
+  ${(props) =>
+    props.wrongAnswer &&
+    css`
+      background-color: red;
+      color: black;
     `}
+  wrongAnswer
 `;

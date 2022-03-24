@@ -1,4 +1,6 @@
+import { Question } from "../../data";
+
 export type Answers = {
-    question: string;
-    optionId: string;
+    question: Question;
+    answeredOption: string;
   }

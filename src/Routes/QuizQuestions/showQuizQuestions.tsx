@@ -1,18 +1,20 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { Instructions } from "../../components/Instructions/instructions";
+import { ShowResults } from "../../components/Results/results";
 import { quizDetails } from "../../data";
 import { updateScore } from "../../utils/updateAnswers";
 import { QuestionCard, Options, Option } from "./quiz.style";
 export const QuizQuestions = () => {
   const [count, setCounter] = useState(0);
   const [optionSelected, setSelectedOption] = useState("");
+  const[showInstrictions,setInstructions]=useState(true)
   const { id } = useParams();
   const currentQuiz = quizDetails.listOfQuizes.find((quiz) => quiz.id === id);
   let lengthofQuizQuestionsArray: any = currentQuiz?.questions.length;
-  console.log(count, lengthofQuizQuestionsArray);
   return (
     <div>
-      {count < lengthofQuizQuestionsArray ? (
+      {showInstrictions? <Instructions setInstructions={setInstructions}/>:count < lengthofQuizQuestionsArray ? (
         <>
         <QuestionCard>
           <h3>{currentQuiz?.questions[count].value}</h3>
@@ -20,11 +22,12 @@ export const QuizQuestions = () => {
             {currentQuiz?.questions[count].options.map(
               ({ optionValue, optionId }) => (
                 <Option
-                  optionSelected={optionSelected === optionId ? false : true}
+                  hoverOnOptions={true}
+                  optionSelected={optionSelected === optionId ? true : false}
                   onClick={() =>
                     updateScore(
                       setSelectedOption,
-                      currentQuiz?.questions[count].questionId,
+                      currentQuiz?.questions[count],
                       optionId
                     )
                   }
@@ -38,7 +41,7 @@ export const QuizQuestions = () => {
         <button onClick={() => setCounter((count:number)=>count+1)}>next</button>
         </>
       ) : (
-        <h2>Finshed the test</h2>
+        <ShowResults/>
       )}
     </div>
   );
