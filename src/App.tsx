@@ -3,6 +3,7 @@ import { NavBar } from "./components/Header/header";
 import { Route, Routes } from "react-router-dom";
 import { Home } from "./Routes/Home/home";
 import { QuizQuestions } from "./Routes/QuizQuestions/showQuizQuestions";
+import { Instructions } from "./components/Instructions/instructions";
 
 export default function App() {
   return (

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 export const QuestionCard = styled.div`
   display: flex;
   flex-direction: column;
@@ -10,17 +10,20 @@ export const Options = styled.div`
   display: flex;
   flex-direction: row;
 `;
-export const Option=styled.label<{ optionSelected: boolean }>`
-${({ optionSelected }) => {
-  if (optionSelected) {
-    return 'background-color: var(--header-color)';
+type QuizOption = {
+  optionSelected?: boolean;
+};
+export const Option = styled.label<QuizOption>`
+  padding: 0.5rem 0.5rem;
+  margin: 1rem;
+  &:hover{
+    background-color: var(--header-color);
+    color: black;
   }
-  return 'background-color: black';
-}}
-padding:0.5rem 0.5rem;
-margin:1rem;
-&:hover{
-  background-color:var(--header-color);
-  color:black;
-}
-`
+  ${(props) =>
+    props.optionSelected &&
+    css`
+      background-color: var(--header-color);
+      color: black;
+    `}
+`;
