@@ -23,7 +23,7 @@ export const quizDetails: Quiz = {
   AuthorOfQuiz: "pvr",
   listOfQuizes: [
     {
-      id: uuid(),
+      id: '1',
       name: "Quiz-one",
       imageUrl:
         "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg",
@@ -71,11 +71,36 @@ export const quizDetails: Quiz = {
               isCorrect: false
             }
           ]
+        },{
+          questionId: uuid(),
+          value: "What are higher order functionsssssssssssssssssssssssssss",
+          options: [
+            {
+              optionId: uuid(),
+              optionValue: "Map, reduce, filter",
+
+              isCorrect: true
+            },
+            {
+              optionId: uuid(),
+              optionValue: "For-each, enhanced-for",
+
+              isCorrect: false
+            },   {
+              optionId: uuid(),
+              optionValue: "xyzs",
+              isCorrect: false
+            },  {
+              optionId: uuid(),
+              optionValue: "12345",
+              isCorrect: false
+            }
+          ]
         }
       ]
     },
     {
-      id: uuid(),
+      id: '2',
       name: "Quiz-two-React",
       imageUrl: "http://codemen.com/wp-content/uploads/2016/09/ReactJS.png",
       questions: [

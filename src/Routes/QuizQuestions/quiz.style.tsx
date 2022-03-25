@@ -28,7 +28,6 @@ type QuizOption = {
   hoverOnOptions?:boolean
 };
 export const Option = styled.li<QuizOption>`
-padding:0;
   margin: 1rem;
   cursor:pointer;
   width:20em;
@@ -52,5 +51,10 @@ padding:0;
     `}
   @media screen and (max-width:765px){
       width:15em;
+      margin: 1rem 0.5rem;
     }
 `;
+export const QuestionText=styled.p`
+text-align: "center";
+word-wrap: "break-word"
+`

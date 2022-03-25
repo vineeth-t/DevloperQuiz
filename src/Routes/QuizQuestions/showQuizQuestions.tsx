@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { Button, Instructions } from "../../components/Instructions/instructions";
+import {
+  Button,
+  Instructions,
+} from "../../components/Instructions/instructions";
 import { ShowResults } from "../../components/Results/results";
 import { quizDetails } from "../../data";
 import { updateScore } from "../../utils/updateAnswers";
-import { QuestionCard, Options, Option } from "./quiz.style";
+import { QuestionCard, Options, Option, QuestionText } from "./quiz.style";
 export const QuizQuestions = () => {
   const [count, setCounter] = useState(0);
   const [optionSelected, setSelectedOption] = useState("");
@@ -19,8 +22,8 @@ export const QuizQuestions = () => {
       ) : count < lengthofQuizQuestionsArray ? (
         <>
           <QuestionCard>
-            <h3>{currentQuiz?.questions[count].value}</h3>
-            <Options type='A'>
+            <QuestionText>{currentQuiz?.questions[count].value}</QuestionText>
+            <Options type="A">
               {currentQuiz?.questions[count].options.map(
                 ({ optionValue, optionId }) => (
                   <Option
@@ -40,7 +43,10 @@ export const QuizQuestions = () => {
               )}
             </Options>
           </QuestionCard>
-          <Button next={'next'} onClick={() => setCounter((count: number) => count + 1)}>
+          <Button
+            next={"next"}
+            onClick={() => setCounter((count: number) => count + 1)}
+          >
             Next
           </Button>
         </>
