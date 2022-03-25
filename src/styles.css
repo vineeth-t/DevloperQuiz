@@ -1,7 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@200;500&display=swap");
-
-body {
+* {
   margin: 0;
+  padding: 0;
+}
+body {
   box-sizing: border-box;
   background-color: var(--bg-color);
   color: var(--font-color);
@@ -9,6 +11,7 @@ body {
 }
 :root {
   --font-color: black;
+  --font-color2:white;
   --bg-color: #292524;
   --header-color: #a3e635;
   --bg-color1: #3f472c;

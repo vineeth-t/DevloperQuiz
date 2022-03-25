@@ -14,18 +14,25 @@ export const QuestionCard = styled.div`
 
   }
 `;
-export const Options = styled.div`
+export const Options = styled.ol`
   display: flex;
   flex-direction: row;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  list-style-position: inside
 `;
 type QuizOption = {
   optionSelected?: boolean;
   wrongAnswer?: boolean;
   hoverOnOptions?:boolean
 };
-export const Option = styled.label<QuizOption>`
-  padding: 0.5rem 0.5rem;
+export const Option = styled.li<QuizOption>`
+padding:0;
   margin: 1rem;
+  cursor:pointer;
+  width:20em;
+  text-align:center;
   ${(props) =>props.hoverOnOptions&&css`
   &:hover {
     background-color: var(--header-color);
@@ -43,4 +50,7 @@ export const Option = styled.label<QuizOption>`
       background-color: red;
       color: black;
     `}
+  @media screen and (max-width:765px){
+      width:15em;
+    }
 `;

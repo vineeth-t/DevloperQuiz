@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { quizDetails } from "../../data";
-import { Option } from "../../Routes/QuizQuestions/quiz.style";
+import { Option, Options } from "../../Routes/QuizQuestions/quiz.style";
 import { answers } from "../../utils/updateAnswers";
 
 export function ShowResults() {
@@ -28,14 +26,16 @@ export function ShowResults() {
       {answers.map(({ question, answeredOption }) => (
         <div>
           <h1>{question.value}</h1>
+          <Options type='A'>
           {question.options.map(({ optionValue, optionId, isCorrect }) => (
-            <Option
+            <Option 
               wrongAnswer={optionId === answeredOption && !isCorrect}
               optionSelected={isCorrect}
             >
               <span> {optionValue}</span>
             </Option>
           ))}
+          </Options>
         </div>
       ))}
     </section>

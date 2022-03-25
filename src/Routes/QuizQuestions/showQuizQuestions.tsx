@@ -20,7 +20,7 @@ export const QuizQuestions = () => {
         <>
           <QuestionCard>
             <h3>{currentQuiz?.questions[count].value}</h3>
-            <Options>
+            <Options type='A'>
               {currentQuiz?.questions[count].options.map(
                 ({ optionValue, optionId }) => (
                   <Option
