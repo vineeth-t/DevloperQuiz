@@ -61,39 +61,85 @@ export const quizDetails: Quiz = {
               optionValue: "For-each, enhanced-for",
 
               isCorrect: false
-            },   {
-              optionId: uuid(),
-              optionValue: "xyzs",
-              isCorrect: false
-            },  {
-              optionId: uuid(),
-              optionValue: "12345",
-              isCorrect: false
             }
           ]
         },{
           questionId: uuid(),
-          value: "What are higher order functionsssssssssssssssssssssssssss",
+          value: "let and const have ___ scope",
           options: [
             {
               optionId: uuid(),
-              optionValue: "Map, reduce, filter",
+              optionValue: "Block Scope",
 
               isCorrect: true
             },
             {
               optionId: uuid(),
-              optionValue: "For-each, enhanced-for",
+              optionValue: "Global Scope",
 
               isCorrect: false
-            },   {
+            }
+          ]
+        },{
+          questionId: uuid(),
+          value: "what is the output for Math.round(1.5),Math.floor(1.5),Math.ceil(1.5)",
+          options: [
+            {
               optionId: uuid(),
-              optionValue: "xyzs",
+              optionValue: "2 2 1",
               isCorrect: false
-            },  {
+            },
+            {
               optionId: uuid(),
-              optionValue: "12345",
+              optionValue: "2 1 2",
+              isCorrect: true
+            }
+          ]
+        },{
+          questionId: uuid(),
+          value: "What are HTML Entities?",
+          options: [
+            {
+              optionId: uuid(),
+              optionValue: "&nbsp, &lt",
+
+              isCorrect: true
+            },
+            {
+              optionId: uuid(),
+              optionValue: "<HTML>,<Head>,<Body>",
+
               isCorrect: false
+            }
+          ]
+        },{
+          questionId: uuid(),
+          value: "which of the following is true about Axios",
+          options: [
+            {
+              optionId: uuid(),
+              optionValue: "Axios response should be converted JSON data explicitly",
+              isCorrect: false
+            },
+            {
+              optionId: uuid(),
+              optionValue: "Axios automatically converts response to JSON data",
+              isCorrect: true
+            }
+          ]
+        },{
+          questionId: uuid(),
+          value: "Predict the output let a=[1,2,3,1,4,3,2]; what will be new Set(a)",
+          options: [
+            {
+              optionId: uuid(),
+              optionValue: "[1,2,3,4]",
+              isCorrect: false
+            },
+            {
+              optionId: uuid(),
+              optionValue: "{1,2,3,4}",
+              isCorrect: true
             }
           ]
         }
@@ -110,7 +156,7 @@ export const quizDetails: Quiz = {
           options: [
             {
               optionId: uuid(),
-              optionValue: "Java-Script",
+              optionValue: "Java-Script- XML",
 
               isCorrect: true
             },
