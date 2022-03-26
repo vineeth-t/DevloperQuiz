@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+import { OptionArray, Question } from "../../data";
 import { Option, Options } from "../../Routes/QuizQuestions/quiz.style";
-import { answers } from "../../utils/updateAnswers";
-import { Rules } from "../Instructions/instructions";
+import { QuestionAnswered } from "../QuizQuestions/quiz.type";
 
 export const ResultPage = styled.section`
   color: var(--font-color2);
@@ -29,22 +29,27 @@ export const ScoreCard = styled.h3`
   }
 `;
 
-export function ShowResults() {
+export function ShowResults({attempetedAnswers,setAttempetedAnswers}:any) {
   const [score, setScore] = useState(0);
   let count = 0;
-  useEffect(
+let currentQuizQuestions= attempetedAnswers.quizes[0].questions
+useEffect(
     () =>
       (function () {
-        for (let j = 0; j < answers.length; j++) {
-          let question = answers[j].question;
-          let temp = answers[j].answeredOption;
+        for (let j = 0; j < currentQuizQuestions.length; j++) {
+          let question = currentQuizQuestions[j];
+          let userAnswer = currentQuizQuestions[j].answeredOption;
           for (let i = 0; i < question.options.length; i++) {
-            question.options[i].optionId === temp &&
+            question.options[i].optionId === userAnswer &&
               question.options[i].isCorrect &&
               count++;
           }
         }
         setScore(count);
+        return ()=>{
+          setScore(0);
+          setAttempetedAnswers(null)
+        }
       })(),
     []
   );
@@ -55,11 +60,11 @@ export function ShowResults() {
         Results
       </h2>
       <ol type="1">
-        {answers.map(({ question, answeredOption }) => (
+        {currentQuizQuestions.map(({ value, answeredOption,options }:QuestionAnswered) => (
           <li>
-            <h3>{question.value}</h3>
+            <h3>{value}</h3>
             <Options type="A">
-              {question.options.map(({ optionValue, optionId, isCorrect }) => (
+              {options.map(({ optionValue, optionId, isCorrect }:OptionArray) => (
                 <Option
                   wrongAnswer={optionId === answeredOption && !isCorrect}
                   optionSelected={isCorrect}

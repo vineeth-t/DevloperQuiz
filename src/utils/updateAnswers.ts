@@ -1,18 +1,34 @@
 import { Question } from "../data";
-import { Answers } from "../Routes/QuizQuestions/quiz.type";
+import { QuizAnswers } from "../Routes/QuizQuestions/quiz.type";
 
-export let answers: Answers[] = [];
 export function updateScore(
-    setSelectedOption: any,
-    question: Question,
-    answeredOption: string
-  ) {
-    setSelectedOption(answeredOption);
-    if(answers.find((answer)=>answer.question.questionId===question.questionId)){
-      let currentIndex=answers.findIndex((answer)=>answer.question.questionId===question.questionId);
-      answers[currentIndex].answeredOption=answeredOption
-    }else{
-      answers=[...answers,{question,answeredOption}]
-    }
-    
+  attempetedAnswers:QuizAnswers|null,
+  setAttempetedAnswers:any,
+  quizId: any,
+  setSelectedOption: any,
+  question: Question,
+  answeredOption: string
+) {
+  setSelectedOption(answeredOption);
+  if (attempetedAnswers?.quizes.find((quiz) => quiz.quizId === quizId)) {
+    let currentIndex = attempetedAnswers.quizes.findIndex(
+      (quiz) => quiz.quizId === quizId
+    );
+    attempetedAnswers.quizes[currentIndex].questions = [
+      ...attempetedAnswers.quizes[currentIndex].questions,
+      { ...question, answeredOption },
+    ];
+  }else{
+    attempetedAnswers = {
+      quizes: [
+        {
+          quizId: quizId,
+          questions: [{ ...question, answeredOption }],
+        },
+      ],
+    };
   }
+  console.log({attempetedAnswers})
+  setAttempetedAnswers(attempetedAnswers)
+
+}

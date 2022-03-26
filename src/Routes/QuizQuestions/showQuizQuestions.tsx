@@ -4,14 +4,16 @@ import {
   Button,
   Instructions,
 } from "../../components/Instructions/instructions";
-import { ShowResults } from "../../components/Results/results";
 import { quizDetails } from "../../data";
 import { updateScore } from "../../utils/updateAnswers";
+import { ShowResults } from "../ResultPage/result";
 import { QuestionCard, Options, Option, QuestionText } from "./quiz.style";
+import { QuizAnswers } from "./quiz.type";
 export const QuizQuestions = () => {
   const [count, setCounter] = useState(0);
   const [optionSelected, setSelectedOption] = useState("");
   const [showInstrictions, setInstructions] = useState(true);
+  const[attempetedAnswers,setAttempetedAnswers]=useState<QuizAnswers|null>(null)
   const { id } = useParams();
   const currentQuiz = quizDetails.listOfQuizes.find((quiz) => quiz.id === id);
   let lengthofQuizQuestionsArray: any = currentQuiz?.questions.length;
@@ -31,6 +33,9 @@ export const QuizQuestions = () => {
                     optionSelected={optionSelected === optionId ? true : false}
                     onClick={() =>
                       updateScore(
+                        attempetedAnswers,
+                        setAttempetedAnswers,
+                        id,
                         setSelectedOption,
                         currentQuiz?.questions[count],
                         optionId
@@ -51,7 +56,7 @@ export const QuizQuestions = () => {
           </Button>
         </>
       ) : (
-        <ShowResults />
+        <ShowResults attempetedAnswers={attempetedAnswers} setAttempetedAnswers={setAttempetedAnswers} />
       )}
     </div>
   );

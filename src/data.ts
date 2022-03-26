@@ -9,12 +9,12 @@ type QuizDetails = {
   imageUrl: string;
   questions: Question[];
 };
-export type Question = {
+export interface Question {
   questionId: string;
   value: string;
   options: OptionArray[];
 };
-type OptionArray = {
+export type OptionArray = {
   optionId: string;
   optionValue: string;
   isCorrect: boolean;
