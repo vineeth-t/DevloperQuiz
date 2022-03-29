@@ -5,12 +5,13 @@ export function updateScore(
   attempetedAnswers:QuizAnswers|null,
   setAttempetedAnswers:any,
   quizId: any,
-  setSelectedOption: any,
   question: Question,
-  answeredOption: string
+  answeredOption: string,
+  setCounter:Function
 ) {
-  setSelectedOption(answeredOption);
-  if (attempetedAnswers?.quizes.find((quiz) => quiz.quizId === quizId)) {
+  
+  setCounter((count:number)=>count+1)
+  if (attempetedAnswers?.quizes?.find((quiz) => quiz.quizId === quizId)) {
     let currentIndex = attempetedAnswers.quizes.findIndex(
       (quiz) => quiz.quizId === quizId
     );
@@ -28,7 +29,6 @@ export function updateScore(
       ],
     };
   }
-  console.log({attempetedAnswers})
   setAttempetedAnswers(attempetedAnswers)
 
 }

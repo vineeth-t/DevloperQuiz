@@ -32,7 +32,7 @@ export const ScoreCard = styled.h3`
 export function ShowResults({attempetedAnswers,setAttempetedAnswers}:any) {
   const [score, setScore] = useState(0);
   let count = 0;
-let currentQuizQuestions= attempetedAnswers.quizes[0].questions
+  let currentQuizQuestions= attempetedAnswers.quizes[0].questions
 useEffect(
     () =>
       (function () {
