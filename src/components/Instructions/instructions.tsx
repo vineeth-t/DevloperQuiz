@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
-import { Options } from "../../Routes/QuizQuestions/quiz.style";
 
 export const Rules = styled.section`
   color: var(--font-color2);

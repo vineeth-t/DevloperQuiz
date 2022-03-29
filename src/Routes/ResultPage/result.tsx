@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { OptionArray, Question } from "../../data";
+import { OptionArray } from "../../data";
 import { Option, Options } from "../../Routes/QuizQuestions/quiz.style";
 import { QuestionAnswered } from "../QuizQuestions/quiz.type";
 
@@ -51,7 +51,7 @@ useEffect(
           setAttempetedAnswers(null)
         }
       })(),
-    []
+    [count,currentQuizQuestions,setAttempetedAnswers]
   );
   return (
     <ResultPage>
