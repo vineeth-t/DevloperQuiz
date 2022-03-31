@@ -30,6 +30,7 @@ type QuizOption = {
 export const Option = styled.li<QuizOption>`
   margin: 1rem;
   cursor:pointer;
+  padding:0.5rem;
   width:20em;
   text-align:center;
   ${(props) =>props.hoverOnOptions&&css`

@@ -5,8 +5,8 @@ export function ListOfQuizes() {
   const{quizState:{quizDetails}}=useQuizContext();
   return (
     <QuizList>
-      {quizDetails?.listOfQuizes?.map(({ id, imageUrl }) => (
-        <Link to={`/quiz/${id}`}>
+      {quizDetails?.listOfQuizes?.map(({ _id, imageUrl }) => (
+        <Link to={`/quiz/${_id}`}>
           <QuizCard>
             <img width="150px" src={imageUrl} alt="quizimage" />
           </QuizCard>

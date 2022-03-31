@@ -20,7 +20,7 @@ export const QuizQuestions = () => {
   const [attempetedAnswers, setAttempetedAnswers] =
     useState<QuizAnswers | null>(null);
   const { id } = useParams();
-  const currentQuiz = quizDetails?.listOfQuizes?.find((quiz) => quiz.id === id);
+  const currentQuiz = quizDetails?.listOfQuizes?.find((quiz) => quiz._id === id);
   let lengthofQuizQuestionsArray: any = currentQuiz?.questions.length;
   return (
     <div>

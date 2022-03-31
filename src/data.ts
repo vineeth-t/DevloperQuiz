@@ -7,7 +7,7 @@ export type Quiz = {
   listOfQuizes: QuizDetails[];
 };
 export type QuizDetails = {
-  id: string;
+  _id: string;
   name: string;
   imageUrl: string;
   questions: Question[];

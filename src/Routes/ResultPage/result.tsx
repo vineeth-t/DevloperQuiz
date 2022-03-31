@@ -59,13 +59,13 @@ useEffect(
       <h2 style={{ textAlign: "center", textDecoration: "underline" }}>
         Results
       </h2>
-      <ol type="1">
+      <ol type="1" >
         {currentQuizQuestions.map(({ value, answeredOption,options }:QuestionAnswered) => (
-          <li>
+          <li style={{marginBottom:'3rem'}}>
             <h3>{value}</h3>
-            <Options type="A">
+            <Options type="A" style={{marginTop:'1rem'}}>
               {options.map(({ optionValue, optionId, isCorrect }:OptionArray) => (
-                <Option
+                <Option 
                   wrongAnswer={optionId === answeredOption && !isCorrect}
                   optionSelected={isCorrect}
                 >
