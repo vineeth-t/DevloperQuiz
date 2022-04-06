@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useQuizContext } from "./Contexts/QuizContext/quizContextProvider";
 import { Quiz } from "./data";
+import { LoginViaGoogle } from "./Routes/Login/login";
 
 export default function App() {
   const { quizDispatch } = useQuizContext();
@@ -29,6 +30,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/quiz/:id" element={<QuizQuestions />} />
+        <Route path='/login' element={<LoginViaGoogle/>}/>
       </Routes>
     </div>
   );
