@@ -8,29 +8,41 @@ import axios from "axios";
 import { useQuizContext } from "./Contexts/QuizContext/quizContextProvider";
 import { Quiz } from "./data";
 import { LoginViaGoogle } from "./Routes/Login/login";
+import { PrivateRoute } from "./Routes/PrivateRoute/privateRoute";
+import { Profile } from "./Routes/Profile/profile";
 
 export default function App() {
   const { quizDispatch } = useQuizContext();
   useEffect(() => {
     (async () => {
       try {
-        const {data:{quizDetails}} = await axios.get<{ quizDetails: Quiz }>(
+        const {
+          data: { quizDetails },
+        } = await axios.get<{ quizDetails: Quiz }>(
           "https://quiz-backend.vineetht.repl.co/quizData"
         );
-        console.log(quizDetails)
-        quizDispatch({ type: "SET_QUIZ", payload:quizDetails });
+        console.log(quizDetails);
+        quizDispatch({ type: "SET_QUIZ", payload: quizDetails });
       } catch (error) {
         console.log(error);
       }
     })();
-  },[quizDispatch]);
+  }, [quizDispatch]);
   return (
     <div className="App">
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/quiz/:id" element={<QuizQuestions />} />
-        <Route path='/login' element={<LoginViaGoogle/>}/>
+        <Route path="/login" element={<LoginViaGoogle />} />
+        <Route
+          path="/profile"
+          element={
+            <PrivateRoute>
+              <Profile />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </div>
   );
