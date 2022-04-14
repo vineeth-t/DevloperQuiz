@@ -20,7 +20,9 @@ export const QuizQuestions = () => {
   const [attempetedAnswers, setAttempetedAnswers] =
     useState<QuizAnswers | null>(null);
   const { id } = useParams();
-  const currentQuiz = quizDetails?.listOfQuizes?.find((quiz) => quiz._id === id);
+  const currentQuiz = quizDetails?.listOfQuizes?.find(
+    (quiz) => quiz._id === id
+  );
   let lengthofQuizQuestionsArray: any = currentQuiz?.questions.length;
   return (
     <div>
@@ -37,7 +39,7 @@ export const QuizQuestions = () => {
                     hoverOnOptions={true}
                     optionSelected={optionSelected === optionId ? true : false}
                     onClick={() => {
-                      setSelectedOption(optionId)
+                      setSelectedOption(optionId);
                     }}
                   >
                     <span> {optionValue}</span>
